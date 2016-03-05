@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<form>
+			<p>
+				<label for="x1">X1</label>
+				<input type="number" id="x1"/>
+			</p>
+			<p>
+				<label for="x2">X2</label>
+				<input type="number" id="x2">
+			</p>
+			<p>
+				<label for="y1">Y1</label>
+				<input type="number" id="y1">
+			</p>
+			<p>
+				<label for="y2">Y2</label>
+				<input type="number" id="y2">
+			</p>
+			<p>
+				<input type="button" value="Calcular" onclick="calcularDistancia()"/></p>
+				<p>
+					<label for="result">Resultado</label>
+					<input type="text" id="result">
+				</p>
+			</form>
+			<script type="text/javascript">
+			function validarCampo(x1, x2, y1, y2) {
+			    var valido = true;
+			    if (x1 == "") {
+			        dispararAlertaCampoInvalido('x1');
+			        valido = false;
+			    }
+			    if (x2 == "") {
+			        dispararAlertaCampoInvalido('x2');
+			        valido = false;
+			    }
+			    if (y1 == "") {
+			        dispararAlertaCampoInvalido('y1');
+			        valido = false;
+			    }
+			    if (y2 == "") {
+			        dispararAlertaCampoInvalido('y2');
+			        valido = false;
+			    }
+			    return valido;
+			}
+
+			function dispararAlertaCampoInvalido(campo) {
+			    alert("O campo " + campo + " deve ser preenchido");
+			}
+
+			function calcularDistancia() {
+			    var x1 = document.getElementById('x1').value;
+			    var x2 = document.getElementById('x2').value;
+			    var y1 = document.getElementById('y1').value;
+			    var y2 = document.getElementById('y2').value;
+			    var result;
+
+			    if (validarCampo(x1, x2, y1, y2)) {
+			        result = Math.sqrt((Math.pow(x2 - x1, 2)) + (Math.pow(y2 - y1, 2)));
+			        document.getElementById('result').value = result;
+			    }
+
+			}
+			</script>
+		</body>
+	</html>
